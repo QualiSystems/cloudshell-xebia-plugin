@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<synthetic xsi:schemaLocation="http://www.xebialabs.com/deployit/synthetic synthetic.xsd" xmlns="http://www.xebialabs.com/deployit/synthetic" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+
+<type type="cloudshell.StartSandbox" extends="xlrelease.PythonScript">
+		<property name="cloudshell_server" category="input" label="Server" referenced-type="cloudshell.Server" kind="ci"/>
+		<property name="blueprint_id" category="input" label="Blueprint Identifier" />
+		<property name="duration" category="input" />
+		<property name="reservation_name" category="input" label="Reservation Name"/>
+		<property name="sandbox_id" category="output"/>
+</type>
+
+<type type="cloudshell.StopSandbox" extends="xlrelease.PythonScript">
+		<property name="cloudshell_server" category="input" label="Server" referenced-type="cloudshell.Server" kind="ci"/>
+		<property name="sandbox_id" category="input" label="Sandbox Id"/>
+</type>
+
+<type type="cloudshell.Server" extends="configuration.HttpConnection"/>
+
+</synthetic>
