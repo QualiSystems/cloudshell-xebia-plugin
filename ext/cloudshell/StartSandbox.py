@@ -34,7 +34,7 @@ request = HttpRequest(cloudshell_server)
 headers = {'Accept': '*/*'}
 response = request.put(context='/api/login', body=body, contentType='application/json', headers=headers)
 
-if response.getStatus() != '200':
+if response.getStatus() != 200:
     raise Exception("Failed to login to Cloudshell Server")
 
 token = response.getResponse()[1:-1]
@@ -43,7 +43,11 @@ content = '{"duration": "' + iso8601(datetime.timedelta(minutes=int(duration))).
 api = '/api/v1/blueprints/{0}/start'.format(blueprint_id)
 response = request.post(api, body=content, contentType='application/json', headers=headers)
 
-if response.getStatus() != '200':
+
+print response.getStatus()
+print response.getResponse()
+
+if response.getStatus() != 200:
     raise Exception('Failed to start sandbox')
 
 reservation = json.loads(response.getResponse())
